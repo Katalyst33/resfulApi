@@ -2,10 +2,23 @@ const express = require('express');
 const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 
 const orderRoutes = require('./api/routes/orders');
+
+
+
+// connenet mongoose database
+mongoose.connect("mongodb://localhost/restful", {useNewUrlParser: true});
+
+const connection = mongoose.connection;
+connection.on('connected', function () {
+    console.log('man has entered database ')
+});
+
+
 
 // console log information about a request
 app.use(logger('dev'));
