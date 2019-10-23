@@ -3,10 +3,11 @@ const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 const productRoutes = require('./api/routes/products');
 
 const orderRoutes = require('./api/routes/orders');
+
 
 
 
@@ -63,15 +64,6 @@ app.use((error, req, res, next) => {
         }
     })
 });
-
-/*
-
-app.use((req, res, next) =>{
-    res.status(200).json({
-        message:'it works amigo'
-    });
-});
-*/
 
 
 module.exports = app;

@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost/restful", {useNewUrlParser: true, useUnifi
 
 const connection = mongoose.connection;
 connection.on('connected', function () {
-    console.log('man has entered database ')
+    // console.log('man has entered database ')
 });
 
 
