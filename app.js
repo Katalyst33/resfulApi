@@ -10,14 +10,9 @@ const orderRoutes = require('./api/routes/orders');
 
 
 
-// connenet mongoose database
-mongoose.connect("mongodb://localhost/restful", {useNewUrlParser: true});
+//db connection
 
-const connection = mongoose.connection;
-connection.on('connected', function () {
-    console.log('man has entered database ')
-});
-
+require  ('./api/connection');
 
 
 // console log information about a request
@@ -42,6 +37,8 @@ app.use((req, res, next) => {
 });
 
 
+
+
 ///product routes handler which is saved in products file
 app.use('/products', productRoutes);
 
@@ -52,7 +49,7 @@ app.use('/orders', orderRoutes);
 
 //error handling for undefined routes in the project
 app.use((req, res, next) => {
-    const error = new Error('Not found boo hoo');
+    const error = new Error('page not found amigo');
     error.status = 404;
     next(error);
 });
