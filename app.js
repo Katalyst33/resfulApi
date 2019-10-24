@@ -1,13 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-require('dotenv').config();
+
 const productRoutes = require('./api/routes/products');
 
 const orderRoutes = require('./api/routes/orders');
-
 
 
 
