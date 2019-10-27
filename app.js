@@ -9,6 +9,9 @@ const productRoutes = require('./api/routes/products');
 
 const orderRoutes = require('./api/routes/orders');
 
+const userRoutes = require('./api/routes/user');
+
+
 
 
 //db connection
@@ -20,6 +23,7 @@ require  ('./api/connection');
 // console log information about a request
 app.use(logger('dev'));
 
+app.use('/uploads',express.static('uploads'));
 //to parsee the body of incoming request (body-parser)
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -47,6 +51,11 @@ app.use('/products', productRoutes);
 
 ///product routes handler which is saved in order file
 app.use('/orders', orderRoutes);
+
+///product routes handler which is saved in order file
+app.use('/user', userRoutes);
+
+
 
 
 //error handling for undefined routes in the project
